@@ -5,6 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
+
+
+
+struct citizen
+{
+    public string name;
+    public int pasport;
+    public int number_problem;
+    public string problem;
+    public int scandal;
+    public int mind;
+}
 namespace DZ._14._10._2022
 {
     internal class Program
@@ -38,6 +50,7 @@ namespace DZ._14._10._2022
             {
                 return "Ой, Бьорг - пончик! Ни для кого пива!";
             }
+
         }
         static void Main(string[] args)
         {
@@ -52,7 +65,7 @@ namespace DZ._14._10._2022
             string[] stud8 = { "Шахмухид", "Карим", "19.12.2010", "математика", "80" };
             string[] stud9 = { "Рафаэль", "Комаров", "20.12.2011", "математика", "90" };
             string[] stud10 = { "Ильяс", "Золотарев", "21.12.2012", "математика", "70" };
-
+             
 
             var people = new Dictionary<int,string[]>()
             {
@@ -176,8 +189,22 @@ namespace DZ._14._10._2022
 
             Console.WriteLine(Сomparison(mas1, mas2));*/
 
-
-
+            Console.WriteLine("ДЗ. Задача 3");
+            Console.WriteLine("Окно 1 - оплата" + '\n' + "Окно 2 - подключение" + '\n' + " Окно 3 - отопление");
+            Console.WriteLine("Заполните форму клиента");
+            citizen Kirill = new citizen();
+            Console.WriteLine("Введите имя");
+            Kirill.name = Console.ReadLine();
+            Console.WriteLine("Введите номер паспорта");
+            Kirill.pasport = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите номер проблемы от 1 до 3");
+            Kirill.number_problem = int.Parse(Console.ReadLine());
+            Console.WriteLine("Опишите проблему: 1 - оплата; 2 - подключение ; 3 - отопление");
+            Kirill.problem = Console.ReadLine();
+            Console.WriteLine("Введите уровень скандальности. 10 - скандальный урод, 0 - паинька");
+            Kirill.scandal = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите степень развития. 1 - умный, 0 - отсталый");
+            Kirill.mind = int.Parse(Console.ReadLine());
 
         }
     }
