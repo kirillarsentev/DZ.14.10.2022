@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,7 @@ namespace DZ._14._10._2022
                     count2++;
                 }
             }
-            if( count1 == count2)
+            if (count1 == count2)
             {
                 return "Drinks All Round! Free Beers on Bjorg!";
             }
@@ -196,16 +197,85 @@ namespace DZ._14._10._2022
             Console.WriteLine("Введите имя");
             Kirill.name = Console.ReadLine();
             Console.WriteLine("Введите номер паспорта");
-            Kirill.pasport = int.Parse(Console.ReadLine());
+            Kirill. pasport = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите номер проблемы от 1 до 3");
             Kirill.number_problem = int.Parse(Console.ReadLine());
-            Console.WriteLine("Опишите проблему: 1 - оплата; 2 - подключение ; 3 - отопление");
+            Console.WriteLine("Опишите проблему");
             Kirill.problem = Console.ReadLine();
             Console.WriteLine("Введите уровень скандальности. 10 - скандальный урод, 0 - паинька");
             Kirill.scandal = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите степень развития. 1 - умный, 0 - отсталый");
             Kirill.mind = int.Parse(Console.ReadLine());
 
+
+            var massiv = Kirill.problem.Split();
+
+            foreach (var word in massiv)
+            {
+
+                if (word == "оплата" || word == "Оплата" || word == "ОПЛАТА")
+                {
+                    Console.WriteLine("Вам в 1 окно");
+                    break;
+                }
+                else if (word == "подключение" || word == "Подключение" || word == "ПОДКЛЮЧЕНИЕ")
+                {
+                    Console.WriteLine("Вам во 2 окно");
+                    break;
+                }
+                else if (word == "отопление" || word == "Отопление" || word == "ОТОПЛЕНИЕ")
+                {
+                    Console.WriteLine("Вам в 3 окно");
+                    break;
+                }
+
+            }
+
+            if (Kirill.scandal >= 5)
+            {
+                Console.WriteLine("Сколько человек из очереди длиной 15 обгонит скандалист?");
+                int peoplecount = int.Parse(Console.ReadLine());
+                if (peoplecount > 10 || peoplecount < 0)
+                {
+                    Console.WriteLine("Указано неверное количество людей в очереди");
+                }
+                else
+                {
+
+                    if (Kirill.mind == 0)
+                    {
+                        Random random = new Random();
+                        int room;
+                        room = random.Next(1, 3);
+                        Console.WriteLine(Kirill.name + " обогнал " + peoplecount + " человек , поэтому теперь он " + (15 - peoplecount) + " в очереди " + '\n' +
+                     " ,но " + Kirill.name + " тупой " + " и вместо нужного окна встал в " + room + " окно");
+                    }
+
+                    else
+                    {
+                        Console.WriteLine(Kirill.name + " обогнал " + peoplecount + " человек , поэтому теперь он " + (15 - peoplecount) + " в очереди " + '\n');
+                    }
+                }
+            }
+            else
+            {
+                if (Kirill.mind == 0)
+                {
+                    Random random = new Random();
+                    int room;
+                    room = random.Next(1, 3);
+                    Console.WriteLine(Kirill.name + " - паинька , но тупой , поэтому вместо своего окна встал в " + room + " окно");
+                }
+                else
+                {
+                    Console.WriteLine(Kirill.name + "не тупой, поэтому встал в " + Kirill.number_problem + " окно");
+                }
+}
+
         }
-    }
+
+
+
+    }     
+    
 }
