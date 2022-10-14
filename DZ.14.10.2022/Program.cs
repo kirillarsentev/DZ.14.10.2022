@@ -56,7 +56,7 @@ namespace DZ._14._10._2022
         static void Main(string[] args)
         {
 
-            /*string[] stud1 = { "Иван", "Иванов", "12.12.2004", "математика", "98" };
+            string[] stud1 = { "Иван", "Иванов", "12.12.2004", "математика", "98" };
             string[] stud2 = { "Настя", "Петрушкина", "13.12.2005", "математика", "96" };
             string[] stud3 = { "Адэль", "Галяутдинов", "14.12.2006", "математика", "60" };
             string[] stud4 = { "Айрат", "Киров", "15.12.2004", "математика", "93" };
@@ -188,7 +188,7 @@ namespace DZ._14._10._2022
                 }
             }
 
-            Console.WriteLine(Сomparison(mas1, mas2));*/
+            Console.WriteLine(Сomparison(mas1, mas2));
 
             Console.WriteLine("ДЗ. Задача 3");
             Console.WriteLine("Окно 1 - оплата" + '\n' + "Окно 2 - подключение" + '\n' + " Окно 3 - отопление");
@@ -197,7 +197,7 @@ namespace DZ._14._10._2022
             Console.WriteLine("Введите имя");
             Kirill.name = Console.ReadLine();
             Console.WriteLine("Введите номер паспорта");
-            Kirill. pasport = int.Parse(Console.ReadLine());
+            Kirill.pasport = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите номер проблемы от 1 до 3");
             Kirill.number_problem = int.Parse(Console.ReadLine());
             Console.WriteLine("Опишите проблему");
@@ -210,20 +210,20 @@ namespace DZ._14._10._2022
 
             var massiv = Kirill.problem.Split();
 
-            foreach (var word in massiv)
+            foreach (var word1 in massiv)
             {
 
-                if (word == "оплата" || word == "Оплата" || word == "ОПЛАТА")
+                if (word1 == "оплата" || word1 == "Оплата" || word1 == "ОПЛАТА")
                 {
                     Console.WriteLine("Вам в 1 окно");
                     break;
                 }
-                else if (word == "подключение" || word == "Подключение" || word == "ПОДКЛЮЧЕНИЕ")
+                else if (word1 == "подключение" || word1 == "Подключение" || word1 == "ПОДКЛЮЧЕНИЕ")
                 {
                     Console.WriteLine("Вам во 2 окно");
                     break;
                 }
-                else if (word == "отопление" || word == "Отопление" || word == "ОТОПЛЕНИЕ")
+                else if (word1 == "отопление" || word1 == "Отопление" || word1 == "ОТОПЛЕНИЕ")
                 {
                     Console.WriteLine("Вам в 3 окно");
                     break;
@@ -270,12 +270,64 @@ namespace DZ._14._10._2022
                 {
                     Console.WriteLine(Kirill.name + "не тупой, поэтому встал в " + Kirill.number_problem + " окно");
                 }
-}
+            }
 
+
+
+            Console.WriteLine("Задание 4, обход графа в ширину");
+            Random rand = new Random();
+            Queue<int> NomersVersh = new Queue<int>();
+            Console.Write("Введите количество вершин: ");
+            int CountVersh = int.Parse(Console.ReadLine()) - 1;
+            if (CountVersh >= 3)
+            {
+                bool[] UsedVersh = new bool[CountVersh + 1];
+                int[][] SmezhVersh = new int[CountVersh + 1][];
+
+                for (int i = 0; i < CountVersh + 1; i++)
+                {
+                    SmezhVersh[i] = new int[CountVersh + 1];
+                    Console.Write($"\n{i + 1} вершина - [");
+                    for (int j = 0; j < CountVersh + 1; j++)
+                    {
+                        SmezhVersh[i][j] = rand.Next(0, 2);
+                    }
+                    SmezhVersh[i][i] = 0;
+                    foreach (var item in SmezhVersh[i])
+                    {
+                        Console.Write($" {item}");
+                    }
+                    Console.Write("]\n");
+                }
+                UsedVersh[CountVersh] = true;     //информация о том, посещали мы вершину или нет 
+                NomersVersh.Enqueue(CountVersh);
+                Console.WriteLine("Начинаем обход с {0} вершины", CountVersh + 1);
+                while (NomersVersh.Count != 0)
+                {
+                    CountVersh = NomersVersh.Peek();
+                    NomersVersh.Dequeue();
+                    Console.WriteLine("Перешли к узлу {0}", CountVersh + 1);
+
+                    for (int i = 0; i < SmezhVersh.Length; i++)
+                    {
+                        if (Convert.ToBoolean(SmezhVersh[CountVersh][i]))
+                        {
+                            int v = i;
+                            if (!UsedVersh[v])
+                            {
+                                UsedVersh[v] = true;
+                                NomersVersh.Enqueue(v);
+                                Console.WriteLine("Добавили в очередь узел {0}", v + 1);
+                            }
+                        }
+
+
+
+                    }
+                }
+
+            }
         }
-
-
-
     }     
     
 }
