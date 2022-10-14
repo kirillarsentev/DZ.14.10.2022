@@ -165,7 +165,7 @@ namespace Toomakov_14._10._22
         static void Main(string[] args)
         {
 
-            /*Console.WriteLine("ДЗ.Задача 6.1");
+            Console.WriteLine("ДЗ.Задача 6.1");
             string str = "c:users\\admin\\github\\toomakov";
             char[] arr = str.ToCharArray();
 
@@ -217,12 +217,12 @@ namespace Toomakov_14._10._22
             {
                 list.Add(c);
             }
-            Console.WriteLine(Simbols(list));*/
+            Console.WriteLine(Simbols(list));
 
 
 
 
-            /*Console.WriteLine("ДЗ.Задача 6.1.2"); 
+            Console.WriteLine("ДЗ.Задача 6.1.2"); 
             List<int> list1 = new List<int>() { 1, 2,3 };
             List<int> list2 = new List<int>() { 5,6,8 };
 
@@ -237,7 +237,7 @@ namespace Toomakov_14._10._22
             List<List<int>> listOfLists1 = new List<List<int>>();
             listOfLists.Add(list3);
             listOfLists.Add(list4);
-            listOfLists.Add(list5);*/
+            listOfLists.Add(list5);
 
 
 
