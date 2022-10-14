@@ -246,32 +246,7 @@ namespace Toomakov_14._10._22
 
 
 
-            /*int[] december = { 12, , "12.12.2004", "математика", "98" };
-            int[] january = { "Настя", "Петрушкина", "13.12.2005", "математика", "96" };
-            int[] february = { "Адэль", "Галяутдинов", "14.12.2006", "математика", "60" };
-            int[] march = { "Айрат", "Киров", "15.12.2004", "математика", "93" };
-            int[] April = { "Ирина", "Вахитова", "16.12.2007", "математика", "85" };
-            int[] May = { "Тимур", "Воронин", "17.12.2008", "математика", "91" };
-            int[] june = { "Кристина", "Калимулина", "18.12.2009", "математика", "20" };
-            int[] july = { "Шахмухид", "Карим", "19.12.2010", "математика", "80" };
-            int[] august = { "Рафаэль", "Комаров", "20.12.2011", "математика", "90" };
-            int[] september = { "Ильяс", "Золотарев", "21.12.2012", "математика", "70" };
-
-
-            var people = new Dictionary<int, string[]>()
-            {
-
-            };
-            people.Add(1, stud1);
-            people.Add(2, stud2);
-            people.Add(3, stud3);
-            people.Add(4, stud4);
-            people.Add(5, stud5);
-            people.Add(6, stud6);
-            people.Add(7, stud7);
-            people.Add(8, stud8);
-            people.Add(9, stud9);
-            people.Add(10, stud10);
+            /*
             int[] december = new int[12];
             int[] january  = new int[12];
             int[] september = new int[12];
