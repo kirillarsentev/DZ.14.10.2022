@@ -9,6 +9,22 @@ namespace Toomakov_14._10._22
 {
     internal class Program
     {
+        enum mounths
+        {
+            January = 0,
+            February = 1,
+            March = 2,
+            April = 3,
+            May = 4,
+            June = 5, 
+            July = 6,
+            August = 7,
+            September = 8,
+            October = 9,
+            November = 10,
+            December = 11
+
+    }
 
         static string  Сounter(char[] arr)
         {
@@ -155,6 +171,22 @@ namespace Toomakov_14._10._22
 
         }
 
+        static double[] Temperature(ref Dictionary<int, int[]> mounth)
+        {
+            double temp = 0;
+            double[] srtemp = new double[12];
+            for(int i = 0; i < mounth.Count; i++)
+            {
+                for(int j = 0; j < mounth[i].Length; j++)
+                {
+                    temp += mounth[i][j];
+                }
+                srtemp[i] = temp / 30;
+
+            }
+            return srtemp;
+        }
+
 
 
 
@@ -165,7 +197,7 @@ namespace Toomakov_14._10._22
         static void Main(string[] args)
         {
 
-            Console.WriteLine("ДЗ.Задача 6.1");
+            /*Console.WriteLine("ДЗ.Задача 6.1");
             string str = "c:users\\admin\\github\\toomakov";
             char[] arr = str.ToCharArray();
 
@@ -246,7 +278,7 @@ namespace Toomakov_14._10._22
 
 
 
-            /*
+            
             int[] december = new int[12];
             int[] january  = new int[12];
             int[] september = new int[12];
@@ -275,6 +307,66 @@ namespace Toomakov_14._10._22
                 //Console.WriteLine(person.Value[0] + " " + person.Value[1] + " " + person.Value[2] + " " + person.Value[3] + " " + person.Value[4]);
             }*/
 
+
+
+            Console.WriteLine("Залача 6.3.1 ");
+            int[] January = new int[30];
+            int[] February = new int[30] ;
+            int[] March = new int[30];
+            int[] April = new int[30];
+            int[] May = new int[30];
+            int[] June = new int[30];
+            int[] July = new int[30];
+            int[] August = new int[30];
+            int[] September = new int[30];
+            int[] October = new int[30];
+            int[] November = new int[30];
+            int[] December = new int[30];
+            var mounth = new Dictionary<int, int[]>();
+            {
+
+            }
+
+            mounth.Add(0, January);
+            mounth.Add(1, February);
+            mounth.Add(2, March);
+            mounth.Add(3, April);
+            mounth.Add(4, May);
+            mounth.Add(5, June);
+            mounth.Add(6, July);
+            mounth.Add(7, August);
+            mounth.Add(8, September);
+            mounth.Add(9, October);
+            mounth.Add(10, November);
+            mounth.Add(11, December);
+
+            Random rnd = new Random();
+            for (int i = 0; i < 11; i++)
+            {
+                for (int j = 0; j < 29; j++)
+                {
+                    mounth[i][j] = rnd.Next(-30,30);
+                }
+            }
+            for (int i = 0; i < 11; i++)
+            {
+                for (int j = 0; j < 30; j++)
+                {
+                    Console.Write(mounth[i][j] + " " + '\t');
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+            for (int i = 0; i < Temperature(ref mounth).Length; i++)
+            {
+                Console.WriteLine(Math.Round(Temperature(ref mounth)[i], 1));
+            }
+
+
+
+
+
         }
     }
+
 }
